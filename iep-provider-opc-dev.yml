@@ -23,13 +23,13 @@ liquibase:
   url: ${spring.datasource.url}
 
 mybatis:
-  type-aliases-package: com.paascloud.provider.model.domain
+  type-aliases-package: com.iep.provider.model.domain
   mapper-locations: classpath:mapper/*.xml,classpath*:sdk/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
 
 mapper:
-  mappers: com.paascloud.core.mybatis.MyMapper
+  mappers: com.iep.core.mybatis.MyMapper
   not-empty: false
   identity: MYSQL
 
@@ -42,8 +42,8 @@ pagehelper:
 security:
   oauth2:
     client:
-      clientId: paascloud-client-opc
-      clientSecret: paascloudClientSecret
+      clientId: iep-client-opc
+      clientSecret: iepClientSecret
       access-token-uri: http://paascloud-gateway:7979/uac/oauth/token
       user-authorization-uri: http://paascloud-gateway:7979/uac/oauth/authorize
     resource:
@@ -52,7 +52,7 @@ security:
       jwt:
         key-uri: http://paascloud-provider-uac:8000/oauth/token_key
 
-paascloud:
+iep:
   enableSqlLogInterceptor: false
   token:
     interceptor:
@@ -68,7 +68,7 @@ paascloud:
       publicHost:
       fileMaxSize: 104857600
   oauth2:
-    jwtSigningKey: paascloud
+    jwtSigningKey: iep
     client:
       id: ${security.oauth2.resource.id}
       accessTokenUrl: ${security.oauth2.client.access-token-uri}
@@ -85,11 +85,11 @@ paascloud:
       reliableMessageConsumer: true
       reliableMessageProducer: false
       namesrvAddr: paascloud-mq-rocket:9876
-      instanceName: paascloud-provider-opc
+      instanceName: iep-provider-opc
       consumerGroup: CID_OPC
       producerGroup: PID_OPC
     sms:
-      signName: 快乐学习网
+      signName: iep
       regionId: cn-beijing
       endpoint:
       endpointName: cn-beijing
