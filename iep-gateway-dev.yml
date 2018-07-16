@@ -94,8 +94,8 @@ zuul:
 security:
   oauth2:
     client:
-      clientId: paascloud-client-gateway
-      clientSecret: paascloudClientSecret
+      clientId: iep-client-gateway
+      clientSecret: iepClientSecret
       access-token-uri: http://paascloud-gateway:7979/uac/oauth/token
       user-authorization-uri: http://paascloud-gateway:7979/uac/oauth/authorize
     resource:
@@ -110,7 +110,7 @@ proxy:
       uac-route: oauth2
       mdc-route: oauth2
 
-paascloud:
+iep:
   enableSqlLogInterceptor: false
 # swagger butler配置
 swagger.butler:
