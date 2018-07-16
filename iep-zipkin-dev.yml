@@ -22,8 +22,8 @@ zipkin:
 security:
   oauth2:
     client:
-      clientId: paascloud-client-zipkin
-      clientSecret: paascloudClientSecret
+      clientId: iep-client-zipkin
+      clientSecret: iepClientSecret
       access-token-uri: http://paascloud-gateway:7979/uac/oauth/token
       user-authorization-uri: http://paascloud-gateway:7979/uac/oauth/authorize
     resource:
@@ -32,7 +32,7 @@ security:
       jwt:
         key-uri: http://paascloud-provider-uac:8000/oauth/token_key
 
-paascloud:
+iep:
   oauth2:
     client:
       id: ${security.oauth2.resource.id}
