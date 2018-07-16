@@ -8,13 +8,13 @@ spring:
     url: jdbc:mysql://paascloud-db-mysql:3306/paascloud_uac?characterEncoding=utf8&useSSL=false
 
 mybatis:
-  type-aliases-package: com.paascloud.provider.model.domain
+  type-aliases-package: com.iep.provider.model.domain
   mapper-locations: classpath:mapper/*.xml,classpath*:sdk/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
 
 mapper:
-  mappers: com.paascloud.core.mybatis.MyMapper
+  mappers: com.iep.core.mybatis.MyMapper
   not-empty: false
   identity: MYSQL
 
@@ -33,22 +33,22 @@ liquibase:
 security:
   oauth2:
     client:
-      clientId: paascloud-client-uac
-      clientSecret: paascloudClientSecret
+      clientId: iep-client-uac
+      clientSecret: iepClientSecret
       access-token-uri: http://paascloud-gateway:7979/uac/oauth/token
       user-authorization-uri: http://paascloud-gateway:7979/uac/oauth/authorize
     resource:
-      id: paascloud-resource-uac
+      id: iep-resource-uac
       filter-order: 3
 
-paascloud:
+iep:
   enableSqlLogInterceptor: false
   aliyun:
     rocketMq:
       enable: true
       reliableMessageConsumer: false
       reliableMessageProducer: true
-      instanceName: paascloud-provider-uac
+      instanceName: iep-provider-uac
       consumerGroup: CID_UAC
       producerGroup: PID_UAC
   auth:
@@ -59,7 +59,7 @@ paascloud:
     interceptor:
       enable: true
   oauth2:
-    jwtSigningKey: paascloud
+    jwtSigningKey: iep
     client:
       id: ${security.oauth2.resource.id}
       accessTokenUrl: ${security.oauth2.client.access-token-uri}
@@ -90,42 +90,42 @@ paascloud:
     oauth2:
       tokenStore: jwt
       clients[0]:
-        clientId: paascloud-client-uac
-        clientSecret: paascloudClientSecret
+        clientId: iep-client-uac
+        clientSecret: iepClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[1]:
-        clientId: paascloud-browser
-        clientSecret: paascloudClientSecret
+        clientId: iep-browser
+        clientSecret: iepClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[2]:
-        clientId: paascloud-client-gateway
-        clientSecret: paascloudClientSecret
+        clientId: iep-client-gateway
+        clientSecret: iepClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[3]:
-        clientId: paascloud-client-zipkin
-        clientSecret: paascloudClientSecret
+        clientId: iep-client-zipkin
+        clientSecret: iepClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[4]:
-        clientId: paascloud-client-mdc
-        clientSecret: paascloudClientSecret
+        clientId: iep-client-mdc
+        clientSecret: iepClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[5]:
-        clientId: paascloud-client-omc
-        clientSecret: paascloudClientSecret
+        clientId: iep-client-omc
+        clientSecret: iepClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[6]:
-        clientId: paascloud-client-opc
-        clientSecret: paascloudClientSecret
+        clientId: iep-client-opc
+        clientSecret: iepClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[7]:
-        clientId: paascloud-client-tpc
-        clientSecret: paascloudClientSecret
+        clientId: iep-client-tpc
+        clientSecret: iepClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
