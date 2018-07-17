@@ -16,7 +16,7 @@ spring:
           from: iepTest@163.com
       turbine:
         clusters: default
-        location: paascloud-monitor
+        location: iep-monitor
       routes:
         endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
 
